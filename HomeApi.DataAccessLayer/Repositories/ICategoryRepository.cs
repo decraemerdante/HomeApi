@@ -3,12 +3,11 @@ using HomeApi.DataAccessLayer.Repositories.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace HomeApi.DataAccessLayer.Repositories
 {
-   public interface IShoppingRepository: IBaseRepository<ShoppingItem>
+   public interface ICategoryRepository : IBaseRepository<ShoppingCategory>
     {
-        Task<IEnumerable<ShoppingItem>> GetAll();
+
     }
 }

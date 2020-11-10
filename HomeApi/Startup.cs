@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HomeApi.DataAccessLayer;
+using HomeApi.DataAccessLayer.Entity;
+using HomeApi.DataAccessLayer.Entity.Models;
+using HomeApi.DataAccessLayer.Repositories;
+using HomeApi.DataAccessLayer.Repositories.Implementations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,6 +37,10 @@ namespace HomeApi
                 options.Connection = Configuration.GetSection("MongoSettings:Connection").Value;
                 options.DatabaseName = Configuration.GetSection("MongoSettings:DatabaseName").Value;
             });
+            services.AddScoped<IMongoDBContext, MongoDBContext>();
+
+            services.AddScoped<IShoppingRepository, ShoppingRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

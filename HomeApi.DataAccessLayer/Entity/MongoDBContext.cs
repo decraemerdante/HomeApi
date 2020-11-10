@@ -6,7 +6,7 @@ using System.Text;
 
 namespace HomeApi.DataAccessLayer.Entity
 {
-    public class MongoDBContext
+    public class MongoDBContext: IMongoDBContext
     {
         private IMongoDatabase _db { get; set; }
         private MongoClient _mongoClient { get; set; }
