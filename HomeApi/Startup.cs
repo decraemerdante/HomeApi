@@ -41,6 +41,8 @@ namespace HomeApi
 
             services.AddScoped<IShoppingRepository, ShoppingRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+
+            services.AddSwaggerDocument();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +63,9 @@ namespace HomeApi
             {
                 endpoints.MapControllers();
             });
+
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
         }
     }
 }

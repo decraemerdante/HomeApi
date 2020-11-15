@@ -20,7 +20,7 @@
     "HomeApi": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "Shopping/GetAll",
+      "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

@@ -13,15 +13,12 @@ namespace HomeApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class HomeController : ControllerBase
+    public class HomeController : BaseController
     {
-        private readonly IShoppingRepository shoppingRepository;
-        private readonly ICategoryRepository categoryRepository;
-        public HomeController(IShoppingRepository shoppingRepository, ICategoryRepository categoryRepository)
+        public HomeController(IShoppingRepository shoppingRepository, ICategoryRepository categoryRepository) : base(shoppingRepository, categoryRepository)
         {
-            this.shoppingRepository = shoppingRepository;
-            this.categoryRepository = categoryRepository;
         }
+
         [HttpGet]
         public async Task<ActionResult<ShoppingList>> Index()
         {
